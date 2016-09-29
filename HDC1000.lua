@@ -1,7 +1,3 @@
-id=0
-sda=2
-scl=1
-i2c.setup(id,sda,scl,i2c.SLOW)
 local e={}
 function e.begin(e)
 if e==nil then e=64 end
