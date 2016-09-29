@@ -1,10 +1,3 @@
-id  = 0
-sda = 2
-scl = 1
-
--- initialize i2c, set pin1 as sda, set pin2 as scl
-i2c.setup(id, sda, scl, i2c.SLOW)
-
 local HDC1000 = {}
 --Sets up sensor by writing to register 0x02, the config register on the HDC1000
 function HDC1000.begin(dev_addr)
