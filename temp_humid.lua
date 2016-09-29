@@ -12,10 +12,10 @@ HDC1000.begin()
 
 function print_temp_hum()
     humid = HDC1000.hum()
-    print("Humidity: "..humid)
+    print("Humidity: " .. humid)
     temp = HDC1000.temp()
-    temp = (temp * 1.8) + 32
-    print("Temperature: "..temp)
+    temp = (temp * 1.8) + 32 --convert temperature to fahrenheit (comment out for celsius)
+    print("Temperature: " .. temp)
 end
 
 tmr.register(0, 5000, tmr.ALARM_AUTO, function() print_temp_hum() end)
