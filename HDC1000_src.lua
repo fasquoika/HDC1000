@@ -8,8 +8,6 @@ function HDC1000.begin(dev_addr)
     i2c.start(id)
     i2c.address(id, dev_addr, i2c.TRANSMITTER)
     i2c.write(id, 0x02)
-    --wait for connection to proper register? Idk, doesn't work without though
-    tmr.delay(1000)
 
     --set reset bit (bit[15]) and aquisition bit (bit[12]) high
     i2c.write(id, 0x9)
@@ -29,8 +27,6 @@ function HDC1000.temp(dev_addr)
     i2c.address(id, dev_addr, i2c.TRANSMITTER)
     i2c.write(id, 0x00)
     i2c.stop(id)
-    --wait for connection to proper register? Idk, doesn't work without though
-    tmr.delay(20000)
     
     --read the register bits and return string, requires conversion to decimal
     i2c.start(id)
@@ -59,8 +55,6 @@ function HDC1000.hum(dev_addr)
     i2c.address(id, dev_addr, i2c.TRANSMITTER)
     i2c.write(id, 0x01)
     i2c.stop(id)
-    --wait for connection to proper register? Idk, doesn't work without this though
-    tmr.delay(20000)
     
     --read the register bits and return string, requires complex conversion to decimal
     i2c.start(id)
